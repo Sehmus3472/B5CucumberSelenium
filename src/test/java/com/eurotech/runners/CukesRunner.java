@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/eurotech/step_definitions",
         dryRun = false, //testlerimizi calistirdigimizda true oder folse durumuna göre iki farkli yol ile calistiriyor.
-        tags = "@tag" // Böyle yazarak ile istedigimiz clasi yazip calistirmasini sagliyor.
+        tags = "@smoke2" // Böyle yazarak ile istedigimiz clasi yazip calistirmasini sagliyor.
                         // ' and ' javadaki ve mantigi gibi calisir her iki sartin da oldugu classlari calistirir.
                         // ' or ' javadaki veya mantigi gibi calisir en az bir tane de varsa onlari cagirir.
                         // ' and not ' bu ise istedigimiz classi calistirir ama önüne not koydugumuz classi calistirmaz.
