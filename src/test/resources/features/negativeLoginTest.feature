@@ -1,6 +1,6 @@
 Feature: Negative login Test
-@wip
-  Scenario Outline:
+@wip @smoke2
+  Scenario Outline:Negative  test
     Given The user is on the login page
     When The user logs in using "<userType>" and "<password>"
     Then The warning message contains "<message>"
@@ -12,7 +12,4 @@ Feature: Negative login Test
       | eurotech@         | Test12345! | Please enter a part following '@'. 'eurotech@' is incomplete.             |
       | eurotech@gmail    | Test12345! | Please include a valid email!                                             |
       | eurotec@gmail.com | Test12345! | Invalid Credentials!                                                      |
-
-
-
 
