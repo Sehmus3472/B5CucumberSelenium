@@ -1,6 +1,6 @@
 
 Feature: Log in as different user
-
+@tag
   Scenario: Login in as teacher with parameter
     Given The user is on the login page
     When The user logs in using "eurotech@gmail.com" and "Test12345!"
