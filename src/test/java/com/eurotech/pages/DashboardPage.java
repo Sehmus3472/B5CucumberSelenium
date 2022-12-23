@@ -54,4 +54,10 @@ public class DashboardPage extends BasePage{
                 return Driver.get().findElement(By.xpath("//section[@class='container']/*[text()='"+headerName+"']")).getText();
         }
 
+        public void navigateToMenu2(String menuName){
+                Driver.get().findElement(By.xpath("//a[text()='"+menuName+"']")).click();
+
+        }
+
+
 }

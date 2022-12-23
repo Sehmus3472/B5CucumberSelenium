@@ -7,13 +7,15 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import java.util.concurrent.TimeUnit;
+
 public class Hooks {
 
     // Hooks class TestNG de Befor ve After classlarin calistigi class vazifesi görür. Bu method her senaryodan önce calisir.
     @Before
     public void setup(){
-        System.out.println("\tThis is coming from Before method");
-
+        //Driver.get().manage().window().maximize();
+        Driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
 
