@@ -18,26 +18,28 @@ import java.util.Map;
 
 
 public class Login_StepDefs {
-    LoginPage loginPage=new LoginPage();
-    DashboardPage dashboardPage=new DashboardPage();
+    LoginPage loginPage = new LoginPage();
+    DashboardPage dashboardPage = new DashboardPage();
     ExcelUtil excelUtil=new ExcelUtil("src/test/resources/EurotechTestB5 -Last.xlsx","Test Data");
     List <Map<String,String>> dataList=excelUtil.getDataList();
 
     @Given("The user is on the login page")
     public void the_user_is_on_the_login_page() {
-        String url= ConfigurationReader.get("url");
+        String url = ConfigurationReader.get("url");
         Driver.get().get(url);
-
     }
+
     @When("The user enters teacher credentials")
     public void the_user_enters_teacher_credentials() {
         loginPage.loginAsTeacher();
 
     }
+
     @Then("The user should be able to login")
     public void the_user_should_be_able_to_login() {
+
         BrowserUtils.waitFor(2);
-        String actualText=dashboardPage.welcomeMessage.getText();
+        String actualText = dashboardPage.welcomeMessage.getText();
         Assert.assertTrue(actualText.contains("Welcome"));
 
 
@@ -46,6 +48,8 @@ public class Login_StepDefs {
     @When("The user enters student credentials")
     public void theUserEntersStudentCredentials() {
         loginPage.loginAsStudent();
+
+
     }
 
     @When("The user enters developer credentials")
@@ -53,27 +57,22 @@ public class Login_StepDefs {
         loginPage.loginAsDeveloper();
     }
 
-
     @When("The user logs in using {string} and {string}")
-    public void theUserLogsInUsingAnd(String username, String password) {
+    public void the_user_logs_in_using_and(String username, String password) {
         System.out.println("username = " + username);
         System.out.println("password = " + password);
-        loginPage.login(username,password);
+        loginPage.login(username, password);
     }
 
-    @And("The welcome massage contains {string}")
-    public void theWelcomeMassageContains(String user) {
+
+    @And("The welcome message contains {string}")
+    public void theWelcomeMessageContains(String user) {
         BrowserUtils.waitFor(2);
-        String actualMessage= dashboardPage.welcomeMessage.getText();
+        String actualMessage=dashboardPage.welcomeMessage.getText();
         System.out.println("actualMessage = " + actualMessage);
         Assert.assertTrue(actualMessage.contains(user));
-    }
 
-    @Then("The welcome message contains {string}")
-    public void theWelcomeMessageContains(String getHeaderText) {
-        BrowserUtils.waitFor(2);
     }
-
 
     @Then("The warning message contains {string}")
     public void theWarningMessageContains(String expectedMessage) {
@@ -85,7 +84,6 @@ public class Login_StepDefs {
 //        System.out.println("validationMessage = " + validationMessage);
 //        Assert.assertEquals(expectedMessage,validationMessage);
     }
-
     @When("The user enters {string} and row number {int}")
     public void the_user_enters_and_row_number(String sheetName, Integer rowNumber) {
         //loginPage.login(dataList.get(0).get("Username"),dataList.get(0).get("Password"));
